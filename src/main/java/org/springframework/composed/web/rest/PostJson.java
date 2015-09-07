@@ -35,7 +35,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @author Sam Brannen
  * @since 1.0
  */
-@RequestMapping(method = POST, produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+@RequestMapping(method = POST, consumes = APPLICATION_JSON_VALUE)
 @ResponseStatus(CREATED)
 @Target(METHOD)
 @Retention(RUNTIME)
