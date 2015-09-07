@@ -6,4 +6,5 @@ Most annotations in the `spring-composed` project rely on `@AliasFor` which was 
 
 #See Also
 
-- The [Spring Annotation Programming Model](https://github.com/spring-projects/spring-framework/wiki/Spring-Annotation-Programming-Model)
+- The official [Spring Annotation Programming Model](https://github.com/spring-projects/spring-framework/wiki/Spring-Annotation-Programming-Model) wiki page
+- [SPR-13442](https://jira.spring.io/browse/SPR-13442), the JIRA issued related to this project
