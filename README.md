@@ -2,7 +2,7 @@
 
 This repository is a collection of _composed annotations_ for use with the Spring Framework.
 
-Most annotations use `@AliasFor` which was introduced in Spring Framework 4.2 and therefore require at least Spring Framework 4.2.1 to work properly. 
+Most annotations in the `spring-composed` project rely on `@AliasFor` which was introduced in Spring Framework 4.2 and therefore require at least Spring Framework 4.2.1 to work properly. 
 
 #See Also
 
