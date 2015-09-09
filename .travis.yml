@@ -1,0 +1,22 @@
+sudo: false
+
+cache:
+  directories:
+  - $HOME/.gradle
+
+language: java
+
+jdk:
+- oraclejdk8
+
+env:
+- TERM=dumb
+
+install: true
+
+before_script:
+  - ./gradlew --version
+
+script:
+#- ./gradlew test jacocoTestReport coveralls
+- ./gradlew assemble
