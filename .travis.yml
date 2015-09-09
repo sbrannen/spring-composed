@@ -1,0 +1,24 @@
+sudo: false
+
+cache:
+  directories:
+  - $HOME/.gradle
+
+language: groovy
+
+jdk:
+- oraclejdk7
+- oraclejdk8
+- openjdk7
+
+env:
+- TERM=dumb
+
+install: true
+
+before_script:
+  - ./gradlew --version
+
+script:
+#- ./gradlew test jacocoTestReport coveralls
+- ./gradlew assemble
