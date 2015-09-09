@@ -4,7 +4,7 @@ cache:
   directories:
   - $HOME/.gradle
 
-language: groovy
+language: java
 
 jdk:
 - oraclejdk7
