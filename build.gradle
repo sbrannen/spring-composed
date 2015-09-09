@@ -13,11 +13,8 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath("org.springframework.build.gradle:propdeps-plugin:0.0.7")
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.3'
+        classpath "io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE"
     }
-}
-
-plugins {
-    id "io.spring.dependency-management" version "0.4.1.RELEASE"
 }
 
 apply plugin: 'propdeps'
@@ -26,6 +23,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven'
 apply plugin: 'idea'
 // apply plugin: 'spring-boot' 
+apply plugin: "io.spring.dependency-management"
 apply plugin: 'com.github.ben-manes.versions'
 
 jar {
