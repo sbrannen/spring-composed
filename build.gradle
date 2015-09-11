@@ -26,8 +26,9 @@ apply plugin: 'maven'
 
 jar {
     baseName = 'spring-composed'
-    version = '1.0.0-SNAPSHOT'
 }
+
+group = 'org.springframework.composed'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
