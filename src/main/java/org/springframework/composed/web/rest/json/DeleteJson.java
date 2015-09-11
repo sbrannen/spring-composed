@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package org.springframework.composed.web.rest;
+package org.springframework.composed.web.rest.json;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
 
 import static org.springframework.http.HttpStatus.*;
-import static org.springframework.http.MediaType.*;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 import java.lang.annotation.Documented;
@@ -35,12 +34,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @author Sam Brannen
  * @since 1.0
  */
-@RequestMapping(method = GET, produces = APPLICATION_JSON_VALUE)
-@ResponseStatus(OK)
+@RequestMapping(method = DELETE)
+@ResponseStatus(NO_CONTENT)
 @Target(METHOD)
 @Retention(RUNTIME)
 @Documented
-public @interface GetJson {
+public @interface DeleteJson {
 
 	@AliasFor(annotation = RequestMapping.class, attribute = "name")
 	String name() default "";

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.composed.web.rest;
+package org.springframework.composed.web.rest.json;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
