@@ -21,6 +21,7 @@ plugins {
 apply plugin: 'propdeps'
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'maven'
 // apply plugin: 'spring-boot' 
 
 jar {
