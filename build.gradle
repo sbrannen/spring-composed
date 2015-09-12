@@ -43,6 +43,9 @@ repositories {
 }
 
 dependencies {
+    optional("org.springframework.boot:spring-boot-starter-data-jpa")
+    optional("org.springframework.boot:spring-boot-starter-jdbc")
+    optional("org.springframework.boot:spring-boot-starter-security")
     optional("org.springframework.boot:spring-boot-starter-web")
     optional("org.springframework.boot:spring-boot-starter-test")
 }
