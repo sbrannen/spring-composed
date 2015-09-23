@@ -32,8 +32,9 @@ The Spring Composed project is released under version 2.0 of the [Apache License
 
 # See Also
 
-- The official [Spring Annotation Programming Model][] wiki page
-- [SPR-13442][], the JIRA issued related to this project
+- [Spring Annotation Programming Model][]: official wiki page from the Spring team
+- [SPR-13442][]: JIRA issued related to this project
+- [Spring Events][]: sample application that uses various annotations from _Spring Composed_
 
 # Downloading Artifacts
 
@@ -84,5 +85,6 @@ Build all JARs, distribution ZIP files, and docs:
 [Spring Annotation Programming Model]: https://github.com/spring-projects/spring-framework/wiki/Spring-Annotation-Programming-Model
 [Spring Composed build]: https://build.spring.io/browse/SC-PUB
 [SPR-13442]: https://jira.spring.io/browse/SPR-13442
+[Spring Events]: https://github.com/sbrannen/spring-events
 [Pull requests]: http://help.github.com/send-pull-requests
 [Contributor License Agreement]: https://github.com/spring-projects/spring-framework/blob/master/CONTRIBUTING.md#sign-the-contributor-license-agreement
