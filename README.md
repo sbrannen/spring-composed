@@ -40,10 +40,9 @@ The Spring Composed project is released under version 2.0 of the [Apache License
 
 The Spring Composed JAR is available from the Spring snapshot repository:
 
- - Repository URL: `https://repo.spring.io/snapshot/`
- - GroupId: `org.springframework.composed`
- - ArtifactId: `spring-composed`
- - Version: `1.0.0.BUILD-SNAPSHOT`
+| Repository URL | Group ID | Artifact ID | Version |
+| -------------- | -------- | ----------- | ------- |
+| `https://repo.spring.io/snapshot/` | `org.springframework.composed` | `spring-composed` | `1.0.0.BUILD-SNAPSHOT` |
 
 # Building from Source
 
@@ -66,15 +65,15 @@ Framework 4.2.1 to work properly.
 Be sure that your `JAVA_HOME` environment variable points to the `jdk1.8.0` folder
 extracted from the JDK download.
 
-## Install the `spring-composed` JAR in your local Maven cache
-
-`./gradlew install`
-
 ## Compile and Test
 
 Build all JARs, distribution ZIP files, and docs:
 
 `./gradlew build`
+
+## Install `spring-composed` in local Maven repository
+
+`./gradlew install`
 
 
 [Apache License]: http://www.apache.org/licenses/LICENSE-2.0
