@@ -5,7 +5,9 @@ This repository is a collection of _composed annotations_ for use with the
 
 The current goal of this project is to brainstorm within the community and
 gather ideas on what kinds of _composed annotations_ would be useful for
-Spring to officially support. So... if you have an idea, share it!
+Spring to officially support.
+
+So... if you have an idea, share it!
 
 As Spring Framework 4.3 approaches, the Spring team will review proposals
 from the community and decide on a reduced set of _composed annotations_
@@ -16,8 +18,9 @@ etc.).
 # Contributing
 
 Feel free to provide us feedback and voice your opinion on which annotations
-should make it into Spring in [SPR-13442][]. [Pull requests][] are also
-welcome and encouraged.
+should make it into Spring in [SPR-13442][].
+
+[Pull requests][] are also welcome and encouraged.
 
 ## Contributor License Agreement
 
@@ -40,9 +43,10 @@ The Spring Composed project is released under version 2.0 of the [Apache License
 
 The Spring Composed JAR is available from the Spring snapshot repository:
 
-| Repository URL | Group ID | Artifact ID | Version |
-| -------------- | -------- | ----------- | ------- |
-| `https://repo.spring.io/snapshot/` | `org.springframework.composed` | `spring-composed` | `1.0.0.BUILD-SNAPSHOT` |
+ - **Repository URL**: `https://repo.spring.io/snapshot/`
+ - **Group ID**: `org.springframework.composed`
+ - **Artifact ID**: `spring-composed`
+ - **Version**: `1.0.0.BUILD-SNAPSHOT`
 
 # Building from Source
 
