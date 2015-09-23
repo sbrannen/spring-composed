@@ -16,17 +16,29 @@
 
 package org.springframework.composed.web.rest;
 
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.transaction.support.TransactionSynchronizationManager.*;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -34,24 +46,14 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Propagation;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 /**
+ * Integration tests for {@link TransactionalRestController @TransactionalRestController}.
+ *
  * @author Kazuki Shimizu
+ * @author Sam Brannen
  * @since 1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -70,23 +72,22 @@ public class TransactionalRestControllerTests {
 	}
 
 	@Test
-	public void testTransactionalRestController() throws Exception {
-		mockMvc.perform(get("/TransactionalRestController"))
+	public void transactionalRestController() throws Exception {
+		mockMvc.perform(get("/tx"))
 				.andExpect(status().isOk())
-				.andExpect(content().string("{\"beanName\":\"transactionalTestController\",\"withinTransaction\":true}"));
+				.andExpect(content().string("{\"beanName\":\"txController\",\"withinTransaction\":true}"));
 	}
 
 	@Configuration
 	@EnableWebMvc
 	@EnableTransactionManagement
-	@ComponentScan(includeFilters = @ComponentScan.Filter(classes = TransactionalRestController.class), useDefaultFilters = false)
+	@ComponentScan(includeFilters = @Filter(TransactionalRestController.class), useDefaultFilters = false)
 	static class Config {
 
-		// Mock datasource
 		@Bean
 		public DataSource dataSource() throws SQLException {
 			DataSource dataSource = mock(DataSource.class);
-			when(dataSource.getConnection()).thenReturn(mock(Connection.class), mock(Connection.class));
+			when(dataSource.getConnection()).thenReturn(mock(Connection.class));
 			return dataSource;
 		}
 
@@ -94,31 +95,29 @@ public class TransactionalRestControllerTests {
 		public DataSourceTransactionManager transactionManager() throws SQLException {
 			return new DataSourceTransactionManager(dataSource());
 		}
-
 	}
 
-	@RequestMapping("/TransactionalRestController")
-	@TransactionalRestController(value = "transactionalTestController", propagation = Propagation.REQUIRES_NEW)
+	@TransactionalRestController(value = "txController", propagation = Propagation.REQUIRES_NEW)
 	static class TestController implements BeanNameAware {
 
 		@Autowired
-		DataSource dataSource;
+		private DataSource dataSource;
 
 		private String beanName;
 
-		@GetResource
+		@GetResource("/tx")
+		@SuppressWarnings("serial")
 		public Map<String, Object> get() {
-			Map<String, Object> attributes = new LinkedHashMap<>();
-			attributes.put("beanName", beanName);
-			attributes.put("withinTransaction", DataSourceUtils.getConnection(dataSource) == DataSourceUtils.getConnection(dataSource));
-			return attributes;
+			return new LinkedHashMap<String, Object>() {{
+				put("beanName", beanName);
+				put("withinTransaction", isActualTransactionActive());
+			}};
 		}
 
 		@Override
-		public void setBeanName(String name) {
-			this.beanName = name;
+		public void setBeanName(String beanName) {
+			this.beanName = beanName;
 		}
-
 	}
 
 }
