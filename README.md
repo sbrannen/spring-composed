@@ -36,7 +36,7 @@ The Spring Composed project is released under version 2.0 of the [Apache License
 # See Also
 
 - [Spring Annotation Programming Model][]: official wiki page from the Spring team
-- [SPR-13442][]: JIRA issued related to this project
+- [SPR-13442][]: JIRA issue related to this project
 - [Spring Events][]: sample application that uses various annotations from _Spring Composed_
 
 # Downloading Artifacts
