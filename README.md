@@ -1,7 +1,7 @@
 # Welcome to _Spring Composed_!
 
 This repository is a collection of _composed annotations_ for use with the
-Spring Framework.
+[Spring Framework][].
 
 The current goal of this project is to brainstorm within the community and
 gather ideas on what kinds of _composed annotations_ would be useful for
@@ -55,8 +55,8 @@ You can check the current build status in the [Spring Composed build][].
 ## Prerequisites
 
 - [Git][]
-- [JDK 8 update 60 or later][JDK8]
-- Spring Framework 4.2.1
+- [JDK 8][JDK8] update 60 or later
+- [Spring Framework][] 4.2.1 or later
 
 Most annotations in the `spring-composed` project rely on `@AliasFor` which
 was introduced in Spring Framework 4.2 and therefore require at least Spring
@@ -80,6 +80,7 @@ Build all JARs, distribution ZIP files, and docs:
 [Gradle]: http://gradle.org
 [Git]: http://help.github.com/set-up-git-redirect
 [JDK8]: http://www.oracle.com/technetwork/java/javase/downloads
+[Spring Framework]: http://projects.spring.io/spring-framework/
 [Spring Annotation Programming Model]: https://github.com/spring-projects/spring-framework/wiki/Spring-Annotation-Programming-Model
 [Spring Composed build]: https://build.spring.io/browse/SC-PUB
 [SPR-13442]: https://jira.spring.io/browse/SPR-13442
