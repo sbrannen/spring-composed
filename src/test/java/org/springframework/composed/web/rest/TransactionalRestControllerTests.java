@@ -34,6 +34,7 @@ import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.composed.stereotype.QualifierAutowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -97,11 +98,29 @@ public class TransactionalRestControllerTests {
 		}
 	}
 
+	@Configuration
+	static class OtherConfig {
+
+		@Bean
+		public String helloMessage() {
+			return "Hello World";
+		}
+
+		@Bean
+		public String hiMessage() {
+			return "Hi World";
+		}
+
+	}
+
 	@TransactionalRestController(value = "txController", propagation = Propagation.REQUIRES_NEW)
 	static class TestController implements BeanNameAware {
 
 		@Autowired
 		private DataSource dataSource;
+
+		@QualifierAutowired("helloMessage")
+		private String message;
 
 		private String beanName;
 
