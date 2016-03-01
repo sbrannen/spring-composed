@@ -60,11 +60,11 @@ You can check the current build status in the [Spring Composed build][].
 
 - [Git][]
 - [JDK 8][JDK8] update 60 or later
-- [Spring Framework][] 4.2.1 or later
+- [Spring Framework][] 4.2.2 or later
 
 Most annotations in the `spring-composed` project rely on `@AliasFor` which
 was introduced in Spring Framework 4.2 and therefore require at least Spring
-Framework 4.2.1 to work properly. 
+Framework 4.2.2 to work properly. 
 
 Be sure that your `JAVA_HOME` environment variable points to the `jdk1.8.0` folder
 extracted from the JDK download.
