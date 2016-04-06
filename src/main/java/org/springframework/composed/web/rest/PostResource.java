@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2015 the original author or authors.
+ * Copyright 2002-2016 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,6 +31,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 /**
  * @author Kazuki Shimizu
+ * @author Sam Brannen
  * @since 1.0
  */
 @RequestMapping(method = POST)
@@ -57,5 +58,8 @@ public @interface PostResource {
 
 	@AliasFor(annotation = RequestMapping.class, attribute = "consumes")
 	String[] consumes() default {};
+
+	@AliasFor(annotation = RequestMapping.class, attribute = "produces")
+	String[] produces() default {};
 
 }
